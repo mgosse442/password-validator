@@ -8,16 +8,37 @@ public class TestValidator {
 
     @Test
     public void testValidPassword() {
-        assertEquals(2, Validator.validate("pppppppassword"));
-        assertEquals(2, Validator.validate("1234567890"));
+        assertEquals(5, Validator.validate("abcZ12345"));
+        assertEquals(5, Validator.validate("1234567890aA"));
     }
 
     @Test
-    public void testInvalidPassword() {
-        //test if password is "password"
-        assertEquals(1, Validator.validate("Password"));
+    //test if password is "password"
+    public void testIfPassword() {
+        assertEquals(3, Validator.validate("Password"));
+    }
 
-        //test if password is less than 8 characters long
-        assertEquals(1, Validator.validate("mypw"));
+    @Test
+    //test if password is less than 8 characters long
+    public void testIfLongEnough() {
+        assertEquals(4, Validator.validate("myPW5"));
+    }
+
+    @Test
+    //test if password doesn't contain a number
+    public void testIfContainsNumber() {
+        assertEquals(4, Validator.validate("Testeroo"));
+    }
+
+    @Test
+    //test if password contains no lowercase letters
+    public void testIfContainsLowerCase() {
+        assertEquals(4, Validator.validate("AAAAAHHHHHHHH123"));
+    }
+
+    @Test
+    //test if password contains no uppercase letters
+    public void testIfContainsUpperCase() {
+        assertEquals(4, Validator.validate("asofhopsfp9"));
     }
 }

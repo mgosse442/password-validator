@@ -16,6 +16,21 @@ public class Validator {
             rulesPassed++;
         }
 
+        //password contains a number
+        if (password.matches(".*\\d.*")) {
+            rulesPassed++;
+        }
+
+        //password contains at least one lowercase letter
+        if (password.matches(".*[a-z]+.*")) {
+            rulesPassed++;
+        }
+
+        //password contains at least one uppercase letter
+        if (password.matches(".*[A-Z]+.*")) {
+            rulesPassed++;
+        }
+
         return rulesPassed;
     }
 }
